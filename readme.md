@@ -11,8 +11,9 @@ pio lib install https://github.com/ThomasDevoogdt/SensorFacade.git
 
 SensorFacade sensorFacade();
 
-void setup() {
-    auto *costumSensorHolder = new CostumSensorHolder();
+void setup()
+{
+    auto* costumSensorHolder = new CostumSensorHolder();
     costumSensorHolder->registerCostumSensor1(new Sensor("name"));
     costumSensorHolder->registerCostumSensor2(new Sensor("name"));
     costumSensorHolder->registerCostumSensor3(new Sensor("name"));
@@ -20,23 +21,23 @@ void setup() {
 
     sensorFacade.addSensor(new CostumSensor("name"))
 
-    sensorFacade.setSensorItr([](String name, Data data) {
+        sensorFacade.setSensorItr([](String name, Data data) {
             //data.value - data.time
-    });
+        });
 
     sensorFacade.begin();
 }
 
-void loop() {
-	// update sensor values
-	sensorFacade.update();
+void loop()
+{
+    // update sensor values
+    sensorFacade.update();
 
-	// iterate over sensors
-	sensorFacade.ItrSensor();
+    // iterate over sensors
+    sensorFacade.ItrSensor();
 
     delay(1000);
 }
-
 ```
 
 # Add single sensor
@@ -54,27 +55,30 @@ void loop() {
 
 class CostumSensor : public Sensor {
 private:
-
 public:
-	CostumSensor(String name) : Sensor(name) {
-    	//
-	}
-
-	// when sensor needs periodic attention, don't impliment getData
-	void update() override {
-    	data.value = NAN;
-		data.time = timeProvider->getTime();
-		return data;
+    CostumSensor(String name)
+        : Sensor(name)
+    {
+        //
     }
 
-	// or
+    // when sensor needs periodic attention, don't impliment getData
+    void update() override
+    {
+        data.value = NAN;
+        data.time = timeProvider->getTime();
+        return data;
+    }
 
-	// in this case don't impliment update()
-	Data getData() override {
-		data.value = NAN;
-		data.time = timeProvider->getTime();
-		return data;
-	}
+    // or
+
+    // in this case don't impliment update()
+    Data getData() override
+    {
+        data.value = NAN;
+        data.time = timeProvider->getTime();
+        return data;
+    }
 };
 
 #endif
@@ -95,55 +99,55 @@ public:
 
 class CostumSensorHolder : public SensorSet {
 private:
-
-	// pointers for ease use
-	Sensor *costumSensor1;
-	Sensor *costumSensor2;
-	Sensor *costumSensor3;
+    // pointers for ease use
+    Sensor* costumSensor1;
+    Sensor* costumSensor2;
+    Sensor* costumSensor3;
 
 public:
-	explicit CostumSensorHolder();
+    explicit CostumSensorHolder();
 
-	void registerCostumSensor1(Sensor *costumSensor1) {
-		this->costumSensor1 = costumSensor1; // direct pointer
-		this->addSensor(costumSensor1); // register in sensorSet
-	}
+    void registerCostumSensor1(Sensor* costumSensor1)
+    {
+        this->costumSensor1 = costumSensor1; // direct pointer
+        this->addSensor(costumSensor1); // register in sensorSet
+    }
 
-	void registerCostumSensor1(Sensor *costumSensor2) {
-		this->costumSensor2 = costumSensor2; // direct pointer
-		this->addSensor(costumSensor2); // register in sensorSet
-	}
+    void registerCostumSensor1(Sensor* costumSensor2)
+    {
+        this->costumSensor2 = costumSensor2; // direct pointer
+        this->addSensor(costumSensor2); // register in sensorSet
+    }
 
-	void registerCostumSensor1(Sensor *costumSensor3) {
-		this->costumSensor1 = costumSensor3; // direct pointer
-		this->addSensor(costumSensor3); // register in sensorSet
-	}
+    void registerCostumSensor1(Sensor* costumSensor3)
+    {
+        this->costumSensor1 = costumSensor3; // direct pointer
+        this->addSensor(costumSensor3); // register in sensorSet
+    }
 
-	void update() {
+    void update()
+    {
         if (costumSensor1 != nullptr) {
             setSensorData(costumSensor1, Data(
-                    NAN,
-                    timeProvider->getTime()
-            ));
+                                            NAN,
+                                             timeProvider->getTime()));
         }
 
-		if (costumSensor2 != nullptr) {
+        if (costumSensor2 != nullptr) {
             setSensorData(costumSensor2, Data(
-                    NAN,
-                    timeProvider->getTime()
-            ));
+                                             NAN,
+                                             timeProvider->getTime()));
         }
 
         if (costumSensor3 != nullptr) {
             setSensorData(costumSensor3, Data(
-                    NAN,
-                    timeProvider->getTime()
-            ));
+                                             NAN,
+                                             timeProvider->getTime()));
         }
     }
 
-	void begin() {
-
+    void begin()
+    {
     }
 };
 
