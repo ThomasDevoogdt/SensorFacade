@@ -41,7 +41,7 @@ void loop() {
 
 # Add single sensor
 
-```
+```c++
 //
 // Created by thomas on 24/11/17.
 //
@@ -82,7 +82,7 @@ public:
 
 # Add sensor group
 
-```
+```c++
 //
 // Created by thomas on 16/11/17.
 //
