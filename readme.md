@@ -1,3 +1,5 @@
+Example Project, Documentation, ... is comming.
+
 # Install
 
 ```
@@ -21,9 +23,9 @@ void setup()
 
     sensorFacade.addSensor(new CostumSensor("name"))
 
-        sensorFacade.setSensorItr([](String name, Data data) {
-            //data.value - data.time
-        });
+    sensorFacade.setSensorItr([](String name, Data data) {
+        //data.value - data.time
+    });
 
     sensorFacade.begin();
 }
@@ -56,8 +58,7 @@ void loop()
 class CostumSensor : public Sensor {
 private:
 public:
-    CostumSensor(String name)
-        : Sensor(name)
+    CostumSensor(String name) : Sensor(name)
     {
         //
     }
@@ -129,25 +130,26 @@ public:
     {
         if (costumSensor1 != nullptr) {
             setSensorData(costumSensor1, Data(
-                                            NAN,
-                                             timeProvider->getTime()));
+                NAN,
+                timeProvider->getTime()));
         }
 
         if (costumSensor2 != nullptr) {
             setSensorData(costumSensor2, Data(
-                                             NAN,
-                                             timeProvider->getTime()));
+                NAN,
+                timeProvider->getTime()));
         }
 
         if (costumSensor3 != nullptr) {
             setSensorData(costumSensor3, Data(
-                                             NAN,
-                                             timeProvider->getTime()));
+                NAN,
+                timeProvider->getTime()));
         }
     }
 
     void begin()
     {
+    
     }
 };
 
