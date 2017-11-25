@@ -9,36 +9,45 @@ pio lib install https://github.com/ThomasDevoogdt/SensorFacade.git
 # Usage
 
 ```c++
+//
+// Created by thomas on 25/11/17.
+//
+
 #include <SensorFacade.h>
+#include "CostumSensorHolder.h"
+#include "CostumSensor.h"
 
-SensorFacade sensorFacade();
+SensorFacade sensorFacade = SensorFacade();
 
-void setup()
-{
-    auto* costumSensorHolder = new CostumSensorHolder();
-    costumSensorHolder->registerCostumSensor1(new Sensor("name"));
-    costumSensorHolder->registerCostumSensor2(new Sensor("name"));
-    costumSensorHolder->registerCostumSensor3(new Sensor("name"));
-    sensorFacade.addSensorSet(costumSensorHolder);
+void setup() {
+	Serial.begin(115200);
+	Serial.println("Starting Up");
 
-    sensorFacade.addSensor(new CostumSensor("name"))
+	auto *costumSensorHolder = new CostumSensorHolder();
+	costumSensorHolder->registerCostumSensor1(new Sensor("sensor_holder_1"));
+	costumSensorHolder->registerCostumSensor2(new Sensor("sensor_holder_2"));
+	costumSensorHolder->registerCostumSensor3(new Sensor("sensor_holder_3"));
+	sensorFacade.addSensorSet(costumSensorHolder);
 
-    sensorFacade.setSensorItr([](String name, Data data) {
-        //data.value - data.time
-    });
+	sensorFacade.addSensor(new CostumSensor("sensor"));
 
-    sensorFacade.begin();
+	sensorFacade.setSensorItr([](String name, Data data) {
+		//data.value - data.time
+		Serial.print("Sensor: " + name);
+		Serial.println("Data: " + String(data.value));
+	});
+
+	sensorFacade.begin();
 }
 
-void loop()
-{
-    // update sensor values
-    sensorFacade.update();
+void loop() {
+	// update sensor values
+	sensorFacade.update();
 
-    // iterate over sensors
-    sensorFacade.ItrSensor();
+	// iterate over sensors
+	sensorFacade.ItrSensor();
 
-    delay(1000);
+	delay(1000);
 }
 ```
 
@@ -46,11 +55,11 @@ void loop()
 
 ```c++
 //
-// Created by thomas on 24/11/17.
+// Created by thomas on 25/11/17.
 //
 
-#ifndef COSTUM_SENSOR
-#define COSTUM_SENSOR
+#ifndef SENSORFACADE_COSTUMSENSOR_H
+#define SENSORFACADE_COSTUMSENSOR_H
 
 #include "Arduino.h"
 #include "SensorFacade.h"
@@ -58,100 +67,93 @@ void loop()
 class CostumSensor : public Sensor {
 private:
 public:
-    CostumSensor(String name) : Sensor(name)
-    {
-        //
-    }
+	CostumSensor(String name) : Sensor(name) {
+		//
+	}
 
-    // when sensor needs periodic attention, don't impliment getData
-    void update() override
-    {
-        data.value = NAN;
-        data.time = timeProvider->getTime();
-        return data;
-    }
+	// when sensor needs periodic attention, don't impliment getData
+	void update() override {
+		data.value = NAN;
+		data.time = timeProvider->getTime();
+	}
 
-    // or
+	// or
 
-    // in this case don't impliment update()
-    Data getData() override
-    {
-        data.value = NAN;
-        data.time = timeProvider->getTime();
-        return data;
-    }
+	// in this case don't impliment update()
+	Data getData() override {
+		data.value = NAN;
+		data.time = timeProvider->getTime();
+		return data;
+	}
 };
 
-#endif
+#endif //SENSORFACADE_COSTUMSENSOR_H
 ```
 
 # Add sensor group
 
 ```c++
 //
-// Created by thomas on 16/11/17.
+// Created by thomas on 25/11/17.
 //
 
-#ifndef COSTUM_SENSOR_GROUP
-#define COSTUM_SENSOR_GROUP
+#ifndef SENSORFACADE_COSTUMSENSORHOLDER_H
+#define SENSORFACADE_COSTUMSENSORHOLDER_H
 
 #include "Arduino.h"
 #include "SensorFacade.h"
 
 class CostumSensorHolder : public SensorSet {
 private:
-    // pointers for ease use
-    Sensor* costumSensor1;
-    Sensor* costumSensor2;
-    Sensor* costumSensor3;
+	// pointers for ease use
+	Sensor *costumSensor1;
+	Sensor *costumSensor2;
+	Sensor *costumSensor3;
 
 public:
-    explicit CostumSensorHolder();
+	explicit CostumSensorHolder() {
 
-    void registerCostumSensor1(Sensor* costumSensor1)
-    {
-        this->costumSensor1 = costumSensor1; // direct pointer
-        this->addSensor(costumSensor1); // register in sensorSet
-    }
+	};
 
-    void registerCostumSensor1(Sensor* costumSensor2)
-    {
-        this->costumSensor2 = costumSensor2; // direct pointer
-        this->addSensor(costumSensor2); // register in sensorSet
-    }
+	void registerCostumSensor1(Sensor *costumSensor1) {
+		this->costumSensor1 = costumSensor1; // direct pointer
+		this->addSensor(costumSensor1); // register in sensorSet
+	}
 
-    void registerCostumSensor1(Sensor* costumSensor3)
-    {
-        this->costumSensor1 = costumSensor3; // direct pointer
-        this->addSensor(costumSensor3); // register in sensorSet
-    }
+	void registerCostumSensor2(Sensor *costumSensor2) {
+		this->costumSensor2 = costumSensor2; // direct pointer
+		this->addSensor(costumSensor2); // register in sensorSet
+	}
 
-    void update()
-    {
-        if (costumSensor1 != nullptr) {
-            setSensorData(costumSensor1, Data(
-                NAN,
-                timeProvider->getTime()));
-        }
+	void registerCostumSensor3(Sensor *costumSensor3) {
+		this->costumSensor3 = costumSensor3; // direct pointer
+		this->addSensor(costumSensor3); // register in sensorSet
+	}
 
-        if (costumSensor2 != nullptr) {
-            setSensorData(costumSensor2, Data(
-                NAN,
-                timeProvider->getTime()));
-        }
+	void begin() {
 
-        if (costumSensor3 != nullptr) {
-            setSensorData(costumSensor3, Data(
-                NAN,
-                timeProvider->getTime()));
-        }
-    }
+	}
 
-    void begin()
-    {
-    
-    }
+	void update() {
+		if (costumSensor1 != nullptr) {
+			setSensorData(costumSensor1, Data(
+					1,
+					timeProvider->getTime()));
+		}
+
+		if (costumSensor2 != nullptr) {
+			setSensorData(costumSensor2, Data(
+					2,
+					timeProvider->getTime()));
+		}
+
+		if (costumSensor3 != nullptr) {
+			setSensorData(costumSensor3, Data(
+					3,
+					timeProvider->getTime()));
+		}
+	}
 };
 
-#endif //COSTUM_SENSOR_GROUP
+#endif //SENSORFACADE_COSTUMSENSORHOLDER_H
 ```
