@@ -13,10 +13,6 @@
 #include "Sensor.h"
 #include "SensorSet.h"
 
-extern "C" {
-#include "user_interface.h"
-}
-
 class Sensor;
 
 class SensorSet;
