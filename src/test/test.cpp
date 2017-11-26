@@ -3,7 +3,7 @@
 //
 
 //#define sensor_log
-#define sensor_bmp
+//#define sensor_bmp
 
 #ifdef sensor_log
 
