@@ -1,12 +1,20 @@
-Example Project, Documentation, ... is comming.
+# SensorFacade
 
-# Install
+This library provides a facade for sensor data. It provides a way to attach, initialize, update and reading the data. New sensors should inherit from the **Sensor** class. If the sensor needs periodic attention or the read out takes a long time, implement the *update* function. If the sensor is just a simple analog read, implement the *getData* function. Each sensors is provided with a name so it can directly used for e.g. a MQTT topic. Sensors with multiple metrics should inherit from **SensorSet** with contains a set of sensors
+
+## TODO
+   * Port to arduino-IDE
+   * Add sensors
+
+Note: I'm working on Ubuntu 16.04 with PlatformIO, version 3.4.1 and GCC version 5.4.0 
+
+## Install
 
 ```
 pio lib install https://github.com/ThomasDevoogdt/SensorFacade.git
 ```
 
-# Usage
+## Usage
 
 ```c++
 //
@@ -51,7 +59,7 @@ void loop() {
 }
 ```
 
-# Add single sensor
+## Add single sensor
 
 ```c++
 //
@@ -90,7 +98,7 @@ public:
 #endif //SENSORFACADE_COSTUMSENSOR_H
 ```
 
-# Add sensor group
+## Add sensor group
 
 ```c++
 //
