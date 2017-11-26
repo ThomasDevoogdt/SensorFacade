@@ -17,6 +17,8 @@ pio lib install https://github.com/ThomasDevoogdt/SensorFacade.git
 
 ## platformio.ini
 
+If you're trying to compile sensor_bmp, add all the necessary dependencies
+
 ```ini
 [env:d1_mini]
 platform = espressif8266
