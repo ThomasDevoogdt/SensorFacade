@@ -5,12 +5,14 @@
 #include "SensorSet.h"
 
 SensorSet::SensorSet() :
-		sensors(SensorLinkedList<Sensor *>([](Sensor *p) { delete p; })) {
+		sensors(SensorLinkedList<Sensor *>()) {
+	//sensors(SensorLinkedList<Sensor *>([](Sensor *p) { delete p; })) {
 	this->timeProvider = new ITimeProvider();
 }
 
 SensorSet::SensorSet(ITimeProvider *timeProvider) :
-		sensors(SensorLinkedList<Sensor *>([](Sensor *p) { delete p; })) {
+		sensors(SensorLinkedList<Sensor *>()) {
+	//sensors(SensorLinkedList<Sensor *>([](Sensor *p) { delete p; })) {
 	this->timeProvider = timeProvider;
 }
 

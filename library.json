@@ -1,13 +1,13 @@
 {
-    "name": "SensorFacade",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/ThomasDevoogdt/SensorFacade.git"
-    },
-    "version": "0.1",
-    "frameworks": "arduino",
-    "platforms": [
-        "atmelavr",
-        "espressif"
-    ]
+  "name": "SensorFacade",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ThomasDevoogdt/SensorFacade.git"
+  },
+  "version": "0.1",
+  "frameworks": "arduino",
+  "platforms": [
+    "atmelavr",
+    "espressif"
+  ]
 }

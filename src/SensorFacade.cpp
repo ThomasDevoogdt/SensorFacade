@@ -5,29 +5,37 @@
 #include "SensorFacade.h"
 
 SensorFacade::SensorFacade() :
-		sensorList(SensorLinkedList<Sensor *>([](Sensor *p) { delete p; })),
-		updateList(SensorLinkedList<ISensor *>([](ISensor *p) { delete p; })) {
+		sensorList(SensorLinkedList<Sensor *>()),
+		updateList(SensorLinkedList<ISensor *>()) {
+	//sensorList(SensorLinkedList<Sensor *>([](Sensor *p) { delete p; })),
+	//updateList(SensorLinkedList<ISensor *>([](ISensor *p) { delete p; })) {
 	this->timeProvider = new ITimeProvider();
 	this->sensorItr = nullptr;
 }
 
 SensorFacade::SensorFacade(void (*sensorItr)(String, Data)) :
-		sensorList(SensorLinkedList<Sensor *>([](Sensor *p) { delete p; })),
-		updateList(SensorLinkedList<ISensor *>([](ISensor *p) { delete p; })) {
+		sensorList(SensorLinkedList<Sensor *>()),
+		updateList(SensorLinkedList<ISensor *>()) {
+	//sensorList(SensorLinkedList<Sensor *>([](Sensor *p) { delete p; })),
+	//updateList(SensorLinkedList<ISensor *>([](ISensor *p) { delete p; })) {
 	this->timeProvider = new ITimeProvider();
 	this->sensorItr = sensorItr;
 }
 
 SensorFacade::SensorFacade(ITimeProvider *timeProvider) :
-		sensorList(SensorLinkedList<Sensor *>([](Sensor *p) { delete p; })),
-		updateList(SensorLinkedList<ISensor *>([](ISensor *p) { delete p; })) {
+		sensorList(SensorLinkedList<Sensor *>()),
+		updateList(SensorLinkedList<ISensor *>()) {
+	//sensorList(SensorLinkedList<Sensor *>([](Sensor *p) { delete p; })),
+	//updateList(SensorLinkedList<ISensor *>([](ISensor *p) { delete p; })) {
 	this->timeProvider = timeProvider;
 	this->sensorItr = nullptr;
 }
 
 SensorFacade::SensorFacade(ITimeProvider *timeProvider, void (*sensorItr)(String, Data)) :
-		sensorList(SensorLinkedList<Sensor *>([](Sensor *p) { delete p; })),
-		updateList(SensorLinkedList<ISensor *>([](ISensor *p) { delete p; })) {
+		sensorList(SensorLinkedList<Sensor *>()),
+		updateList(SensorLinkedList<ISensor *>()) {
+	//sensorList(SensorLinkedList<Sensor *>([](Sensor *p) { delete p; })),
+	//updateList(SensorLinkedList<ISensor *>([](ISensor *p) { delete p; })) {
 	this->timeProvider = timeProvider;
 	this->sensorItr = sensorItr;
 }

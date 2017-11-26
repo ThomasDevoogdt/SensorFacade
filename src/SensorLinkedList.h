@@ -25,7 +25,7 @@
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#include <functional>
+//#include <functional>
 #include "stddef.h"
 #include "WString.h"
 
@@ -48,8 +48,14 @@ template<typename T, template<typename> class Item = SensorLinkedListNode>
 class SensorLinkedList {
 public:
 	typedef Item<T> ItemType;
-	typedef std::function<void(const T &)> OnRemove;
-	typedef std::function<bool(const T &)> Predicate;
+
+	//typedef std::function<void(const T &)> OnRemove;
+	//typedef std::function<bool(const T &)> Predicate;
+
+	typedef void (*OnRemove)(T *);
+
+	typedef bool(*Predicate)(T *);
+
 private:
 	ItemType *_root;
 	OnRemove _onRemove;
@@ -79,6 +85,8 @@ public:
 	ConstIterator begin() const { return ConstIterator(_root); }
 
 	ConstIterator end() const { return ConstIterator(nullptr); }
+
+	SensorLinkedList() : _root(nullptr), _onRemove([](T *p) { delete p; }) {}
 
 	SensorLinkedList(OnRemove onRemove) : _root(nullptr), _onRemove(onRemove) {}
 
