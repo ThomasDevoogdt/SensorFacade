@@ -29,6 +29,8 @@
 #include "stddef.h"
 #include "WString.h"
 
+//#define nullptr NULL
+
 template<typename T>
 class SensorLinkedListNode {
 	T _value;

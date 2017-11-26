@@ -4,42 +4,7 @@
 
 #include <SensorFacade.h>
 
-class CostumSensor;
-
-class CostumSensorHolder;
-
 SensorFacade sensorFacade = SensorFacade();
-
-void setup() {
-	Serial.begin(115200);
-	Serial.println("Starting Up");
-
-	auto *costumSensorHolder = new CostumSensorHolder();
-	costumSensorHolder->registerCostumSensor1(new Sensor("sensor_holder_1"));
-	costumSensorHolder->registerCostumSensor2(new Sensor("sensor_holder_2"));
-	costumSensorHolder->registerCostumSensor3(new Sensor("sensor_holder_3"));
-	sensorFacade.addSensorSet(costumSensorHolder);
-
-	sensorFacade.addSensor(new CostumSensor("sensor"));
-
-	sensorFacade.setSensorItr([](String name, Data data) {
-		//data.value - data.time
-		Serial.print("Sensor: " + name);
-		Serial.println("Data: " + String(data.value));
-	});
-
-	sensorFacade.begin();
-}
-
-void loop() {
-	// update sensor values
-	sensorFacade.update();
-
-	// iterate over sensors
-	sensorFacade.ItrSensor();
-
-	delay(1000);
-}
 
 class CostumSensor : public Sensor {
 private:
@@ -116,3 +81,33 @@ public:
 	}
 };
 
+void setup() {
+	Serial.begin(115200);
+	Serial.println("Starting Up");
+
+	CostumSensorHolder *costumSensorHolder = new CostumSensorHolder();
+	costumSensorHolder->registerCostumSensor1(new Sensor("sensor_holder_1"));
+	costumSensorHolder->registerCostumSensor2(new Sensor("sensor_holder_2"));
+	costumSensorHolder->registerCostumSensor3(new Sensor("sensor_holder_3"));
+	sensorFacade.addSensorSet(costumSensorHolder);
+
+	sensorFacade.addSensor(new CostumSensor("sensor"));
+
+	sensorFacade.setSensorItr([](String name, Data data) {
+		//data.value - data.time
+		Serial.print("Sensor: " + name);
+		Serial.println("Data: " + String(data.value));
+	});
+
+	sensorFacade.begin();
+}
+
+void loop() {
+	// update sensor values
+	sensorFacade.update();
+
+	// iterate over sensors
+	sensorFacade.ItrSensor();
+
+	delay(1000);
+}
