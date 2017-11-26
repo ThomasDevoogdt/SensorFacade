@@ -60,7 +60,7 @@
  install:
      - pip install -U platformio
 
-     -  platformio lib install "Adafruit BMP085 Unified" "Adafruit Unified Sensor" "Wire"
+     - platformio lib install "Adafruit BMP085 Unified" "Adafruit Unified Sensor"
 
  script:
      - platformio ci --lib="." --board=d1_mini --board=uno
