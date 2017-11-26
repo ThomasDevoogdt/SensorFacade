@@ -1,0 +1,15 @@
+build: off
+environment:
+
+  matrix:
+    - PLATFORMIO_CI_SRC: "examples/sensor_log"
+    - PLATFORMIO_CI_SRC: "examples/sensor_bmp"
+
+install:
+    - cmd: git submodule update --init --recursive
+    - cmd: SET PATH=%PATH%;C:\Python27\Scripts
+    - cmd: pip install -U platformio
+    - cmd: platformio lib install "Adafruit BMP085 Unified" "Adafruit Unified Sensor"
+
+test_script:
+    - cmd: platformio ci --lib="." --board=d1_mini --board=uno
