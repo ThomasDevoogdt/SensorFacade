@@ -54,8 +54,8 @@
          - "~/.platformio"
 
  env:
-     - PLATFORMIO_CI_SRC=examples/sensor_log/sensor_log.ino
-     - PLATFORMIO_CI_SRC=examples/sensor_bmp/sensor_bmp.ino
+     - PLATFORMIO_CI_SRC=examples/sensor_log
+     - PLATFORMIO_CI_SRC=examples/sensor_bmp
 
  install:
      - pip install -U platformio
