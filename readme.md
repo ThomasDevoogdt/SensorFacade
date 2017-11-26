@@ -1,4 +1,5 @@
-# SensorFacade [![Build Status](https://travis-ci.org/ThomasDevoogdt/SensorFacade.svg?branch=master)](https://travis-ci.org/ThomasDevoogdt/SensorFacade)
+# SensorFacade 
+[![Build Status](https://travis-ci.org/ThomasDevoogdt/SensorFacade.svg?branch=master)](https://travis-ci.org/ThomasDevoogdt/SensorFacade) [![Build status](https://ci.appveyor.com/api/projects/status/0nv4cain07atylad?svg=true)](https://ci.appveyor.com/project/ThomasDevoogdt/sensorfacade)
 
 
 This library provides a facade for sensor data. It provides a way to attach, initialize, update and read the data. New sensors should inherit from the **Sensor** class. If the sensor needs periodic attention or the read out takes a long time, implement the *update* function. If the sensor is just a simple analog reader, implement the *getData* function. Each sensors is provided with a name so it can directly used for e.g. a MQTT topic. Sensors with multiple metrics should inherit from **SensorSet** with contains a set of sensors
