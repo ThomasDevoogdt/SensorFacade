@@ -55,9 +55,12 @@
 
  env:
      - PLATFORMIO_CI_SRC=examples/sensor_log/sensor_log.ino
+     - PLATFORMIO_CI_SRC=examples/sensor_bmp/sensor_bmp.ino
 
  install:
      - pip install -U platformio
 
+     -  platformio lib install "Adafruit BMP085 Unified" "Adafruit Unified Sensor" "Wire"
+
  script:
-     - platformio ci --lib="." --board=d1_mini
+     - platformio ci --lib="." --board=d1_mini --board=uno
