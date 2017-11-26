@@ -15,6 +15,22 @@ Note: I'm working on Ubuntu 16.04 with PlatformIO, version 3.4.1 and GCC version
 pio lib install https://github.com/ThomasDevoogdt/SensorFacade.git
 ```
 
+## platformio.ini
+
+If you're trying to compile sensor_bmp, add all the necessary dependencies
+
+```ini
+[env:d1_mini]
+platform = espressif8266
+board = d1_mini
+framework = arduino
+
+lib_deps =
+    Adafruit BMP085 Unified
+    Adafruit Unified Sensor
+    Wire
+```
+
 ## Usage
 
 ```c++
