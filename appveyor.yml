@@ -9,7 +9,9 @@ install:
     - cmd: git submodule update --init --recursive
     - cmd: SET PATH=%PATH%;C:\Python27\Scripts
     - cmd: pip install -U platformio
-    - cmd: platformio lib install "Adafruit BMP085 Unified" "Adafruit Unified Sensor"
+#    - cmd: platformio lib install "Adafruit BMP085 Unified" "Adafruit Unified Sensor"
+    - cmd: git clone https://github.com/adafruit/Adafruit_Sensor.git C:\Adafruit_Sensor
+    - cmd: git clone https://github.com/adafruit/Adafruit_BMP085_Unified.git C:\Adafruit_BMP085_Unified
 
 test_script:
-    - cmd: platformio ci --lib="." --board=d1_mini --board=uno
+    - cmd: platformio ci --lib="." --lib="C:\\Adafruit_Sensor" --lib="C:\\Adafruit_BMP085_Unified" --exclude=src/test --board=d1_mini --board=uno
