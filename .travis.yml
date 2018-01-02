@@ -37,7 +37,9 @@
  install:
      - pip install -U platformio
 
-     - platformio lib install "Adafruit BMP085 Unified" "Adafruit Unified Sensor" "https://github.com/adafruit/Adafruit_Sensor.git"
+     #- platformio lib install "Adafruit BMP085 Unified" "Adafruit Unified Sensor" "https://github.com/adafruit/Adafruit_Sensor.git"
+     - git clone https://github.com/adafruit/Adafruit_Sensor.git tmp/lib/Adafruit_Sensor
+     - git clone https://github.com/adafruit/Adafruit_BMP085_Unified.git tmp/lib/Adafruit_BMP085_Unified
 
  script:
-     - platformio ci --lib="." --board=d1_mini --board=uno
+     - platformio ci --lib="." --lib="tmp/lib" --board=d1_mini --board=uno
