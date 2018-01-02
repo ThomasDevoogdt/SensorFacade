@@ -42,4 +42,4 @@
      - git clone https://github.com/adafruit/Adafruit_BMP085_Unified.git tmp/lib/Adafruit_BMP085_Unified
 
  script:
-     - platformio ci --lib="." --lib="tmp/lib" --board=d1_mini --board=uno
+     - platformio ci --lib="." --lib="tmp/lib/Adafruit_Sensor" --lib="tmp/lib/Adafruit_BMP085_Unified" --board=d1_mini --board=uno
