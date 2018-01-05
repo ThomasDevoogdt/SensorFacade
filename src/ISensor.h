@@ -8,12 +8,20 @@
 
 class ISensor {
 public:
+	/**
+	 * use for sensors that needs periodic attention
+	 *
+	 */
 	virtual void update() {
-		// use for sensors that needs periodic attention
+		//
 	}
 
+	/**
+	 * use for sensors that needs initialization
+	 *
+	 */
 	virtual void begin() {
-		// use for sensors that needs initialization
+		//
 	}
 };
 
