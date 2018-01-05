@@ -12,8 +12,8 @@ Each sensors is provided with a name so it can directly used for e.g. a
 MQTT topic. Sensors with multiple metrics should inherit from
 **SensorSet** with contains a set of sensors
 
-TODO
-----
+TODO:
+-----
 
 -  Port to arduino-IDE
 -  Add sensors
