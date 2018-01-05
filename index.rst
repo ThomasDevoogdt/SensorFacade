@@ -1,5 +1,8 @@
-.. toctree::
-:maxdepth: 2
-        :caption: Developer Documentation
+Welcome to SensorFacade's documentation!
+========================================
 
-        /src/ISensor.h
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   Dev <readme>
