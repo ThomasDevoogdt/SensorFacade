@@ -1,16 +1,21 @@
 SensorFacade
 ============
 
-|Build Status| |Build status| |Codacy Badge| |License: MIT|
-
-.. |Build Status| image:: https://travis-ci.org/ThomasDevoogdt/SensorFacade.svg?branch=master
+.. image:: https://travis-ci.org/ThomasDevoogdt/SensorFacade.svg?branch=master
 :target: https://travis-ci.org/ThomasDevoogdt/SensorFacade
-.. |Build status| image:: https://ci.appveyor.com/api/projects/status/0nv4cain07atylad?svg=true
+:alt: Build Status
+.. image:: https://ci.appveyor.com/api/projects/status/0nv4cain07atylad?svg=true
 :target: https://ci.appveyor.com/project/ThomasDevoogdt/sensorfacade
-.. |Codacy Badge| image:: https://api.codacy.com/project/badge/Grade/179f0487570841ff9782e92fa1551740
+:alt: Build status
+.. image:: https://api.codacy.com/project/badge/Grade/179f0487570841ff9782e92fa1551740
 :target: https://www.codacy.com/app/ThomasDevoogdt/SensorFacade?utm_source=github.com&utm_medium=referral&utm_content=ThomasDevoogdt/SensorFacade&utm_campaign=Badge_Grade
-.. |License: MIT| image:: https://img.shields.io/badge/License-MIT-yellow.svg
+:alt: Codacy Badge
+.. image:: https://img.shields.io/badge/License-MIT-yellow.svg
 :target: https://opensource.org/licenses/MIT
+:alt: License: MIT
+.. image:: https://readthedocs.org/projects/sensorfacade/badge/?version=latest
+:target: http://sensorfacade.readthedocs.io/en/latest/?badge=latest
+:alt: Documentation Status
 
 This library provides a facade for sensor data. It provides a way to
 attach, initialize, update and read the data. New sensors should inherit
@@ -23,7 +28,7 @@ MQTT topic. Sensors with multiple metrics should inherit from
 
 
 TODO:
------
+=====
 
 -  Port to arduino-IDE
 -  Add sensors
@@ -32,14 +37,14 @@ Note: I’m working on Ubuntu 16.04 with PlatformIO, version 3.4.1 and GCC
 version 5.4.0
 
 Install
--------
+=======
 
 ::
 
     pio lib install https://github.com/ThomasDevoogdt/SensorFacade.git
 
 platformio.ini
---------------
+==============
 
 If you’re trying to compile sensor_bmp, add all the necessary
 dependencies
@@ -57,7 +62,7 @@ dependencies
         Wire
 
 Usage
------
+=====
 
 .. code:: cpp
 
@@ -103,7 +108,7 @@ Usage
     }
 
 Add single sensor
------------------
+=================
 
 .. code:: cpp
 
@@ -143,7 +148,7 @@ Add single sensor
     #endif //SENSORFACADE_COSTUMSENSOR_H
 
 Add sensor group
-----------------
+================
 
 .. code:: cpp
 
