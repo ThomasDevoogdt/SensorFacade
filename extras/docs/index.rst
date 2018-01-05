@@ -27,7 +27,7 @@ Class Documentation
    :project: SensorFacade
    :members:
 
-.. doxygenclass:: Data
+.. doxygenstruct:: Data
    :project: SensorFacade
    :members:
 
