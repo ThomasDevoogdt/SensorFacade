@@ -11,6 +11,11 @@ class SensorFacade;
 
 class SensorSet;
 
+/**
+ * Each metric of each sensor should have an sensor implementation.
+ * Implement the the update method or override the getData method.
+ *
+ */
 class Sensor : public ISensor {
 	// Class Fields
 protected:
