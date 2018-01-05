@@ -9,6 +9,10 @@
 
 class ITimeProvider {
 public:
+	/**
+	 * an abstract time provider function
+	 * @return abstract version returns always NAN
+	 */
 	virtual unsigned long getTime() { return NAN; }
 };
 

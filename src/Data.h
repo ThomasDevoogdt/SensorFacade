@@ -10,6 +10,11 @@
 struct Data {
 	Data() = default;
 
+	/**
+	 *
+	 * @param value
+	 * @param time
+	 */
 	Data(float value, unsigned long time) {
 		this->value = value;
 		this->time = time;

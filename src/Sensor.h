@@ -23,12 +23,29 @@ protected:
 	virtual void setData(Data data);
 
 public:
+	/**
+	 *
+	 * @param name of the sensor instance
+	 * @param timeProvider
+	 */
 	explicit Sensor(String name, ITimeProvider *timeProvider);
 
+	/**
+	 *
+	 * @param name of the sensor instance
+	 */
 	Sensor(String name);
 
+	/**
+	 *
+	 * @return last captured data
+	 */
 	virtual Data getData();
 
+	/**
+	 *
+	 * @return name of the sensor instance - used for e.g. MQTT topic
+	 */
 	String getName();
 
 	friend SensorFacade;

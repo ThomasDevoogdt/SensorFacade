@@ -3,6 +3,15 @@ SensorFacade
 
 |Build Status| |Build status| |Codacy Badge| |License: MIT|
 
+.. |Build Status| image:: https://travis-ci.org/ThomasDevoogdt/SensorFacade.svg?branch=master
+:target: https://travis-ci.org/ThomasDevoogdt/SensorFacade
+.. |Build status| image:: https://ci.appveyor.com/api/projects/status/0nv4cain07atylad?svg=true
+:target: https://ci.appveyor.com/project/ThomasDevoogdt/sensorfacade
+.. |Codacy Badge| image:: https://api.codacy.com/project/badge/Grade/179f0487570841ff9782e92fa1551740
+:target: https://www.codacy.com/app/ThomasDevoogdt/SensorFacade?utm_source=github.com&utm_medium=referral&utm_content=ThomasDevoogdt/SensorFacade&utm_campaign=Badge_Grade
+.. |License: MIT| image:: https://img.shields.io/badge/License-MIT-yellow.svg
+:target: https://opensource.org/licenses/MIT
+
 This library provides a facade for sensor data. It provides a way to
 attach, initialize, update and read the data. New sensors should inherit
 from the **Sensor** class. If the sensor needs periodic attention or the
@@ -11,6 +20,7 @@ sensor is just a simple analog reader, implement the *getData* function.
 Each sensors is provided with a name so it can directly used for e.g. a
 MQTT topic. Sensors with multiple metrics should inherit from
 **SensorSet** with contains a set of sensors
+
 
 TODO:
 -----
@@ -201,14 +211,6 @@ Add sensor group
 
     #endif //SENSORFACADE_COSTUMSENSORHOLDER_H
 
-.. |Build Status| image:: https://travis-ci.org/ThomasDevoogdt/SensorFacade.svg?branch=master
-   :target: https://travis-ci.org/ThomasDevoogdt/SensorFacade
-.. |Build status| image:: https://ci.appveyor.com/api/projects/status/0nv4cain07atylad?svg=true
-   :target: https://ci.appveyor.com/project/ThomasDevoogdt/sensorfacade
-.. |Codacy Badge| image:: https://api.codacy.com/project/badge/Grade/179f0487570841ff9782e92fa1551740
-   :target: https://www.codacy.com/app/ThomasDevoogdt/SensorFacade?utm_source=github.com&utm_medium=referral&utm_content=ThomasDevoogdt/SensorFacade&utm_campaign=Badge_Grade
-.. |License: MIT| image:: https://img.shields.io/badge/License-MIT-yellow.svg
-   :target: https://opensource.org/licenses/MIT
 
 ----
 

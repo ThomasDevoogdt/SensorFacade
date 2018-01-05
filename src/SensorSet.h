@@ -24,12 +24,25 @@ protected:
 	void setSensorData(Sensor *sensor, Data data);
 
 public:
+	/**
+	 * creates a sensor set
+	 */
 	SensorSet();
 
+	/**
+	 * creates a sensor set with a time provider
+	 * @param timeProvider
+	 */
 	SensorSet(ITimeProvider *timeProvider);
 
+	/**
+	 * call begin function of all sensors
+	 */
 	void begin() override;
 
+	/**
+	 * call update function of all sensors
+	 */
 	void update() override;
 
 	SensorLinkedList<Sensor *> getSensors();
