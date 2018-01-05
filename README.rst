@@ -31,8 +31,8 @@ MQTT topic. Sensors with multiple metrics should inherit from
 **SensorSet** with contains a set of sensors
 
 
-TODO:
-=====
+TODO
+----
 
 -  Port to arduino-IDE
 -  Add sensors
@@ -41,14 +41,14 @@ Note: I’m working on Ubuntu 16.04 with PlatformIO, version 3.4.1 and GCC
 version 5.4.0
 
 Install
-=======
+-------
 
 ::
 
     pio lib install https://github.com/ThomasDevoogdt/SensorFacade.git
 
 platformio.ini
-==============
+--------------
 
 If you’re trying to compile sensor_bmp, add all the necessary
 dependencies
@@ -66,7 +66,7 @@ dependencies
         Wire
 
 Usage
-=====
+-----
 
 .. code:: cpp
 
@@ -112,7 +112,7 @@ Usage
     }
 
 Add single sensor
-=================
+-----------------
 
 .. code:: cpp
 
@@ -152,7 +152,7 @@ Add single sensor
     #endif //SENSORFACADE_COSTUMSENSOR_H
 
 Add sensor group
-================
+----------------
 
 .. code:: cpp
 
@@ -221,6 +221,8 @@ Add sensor group
     #endif //SENSORFACADE_COSTUMSENSORHOLDER_H
 
 
-----
 
 This software is released under an MIT license. See the attached LICENSE file for details.
+
+----
+
