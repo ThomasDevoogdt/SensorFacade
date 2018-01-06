@@ -2,6 +2,7 @@ SensorFacade
 ============
 
 Link to github: https://github.com/ThomasDevoogdt/SensorFacade.git
+Link to docs: http://sensorfacade.readthedocs.io/en/latest/?badge=master
 
 |travis| |appveyor| |codacy| |licenses| |readthedocs|
 
@@ -17,8 +18,8 @@ Link to github: https://github.com/ThomasDevoogdt/SensorFacade.git
 .. |licenses| image:: https://img.shields.io/badge/License-MIT-yellow.svg
    :target: https://opensource.org/licenses/MIT
    :alt: License: MIT
-.. |readthedocs| image:: https://readthedocs.org/projects/sensorfacade/badge/?version=latest
-   :target: http://sensorfacade.readthedocs.io/en/latest/?badge=latest
+.. |readthedocs| image:: https://readthedocs.org/projects/sensorfacade/badge/?version=master
+   :target: http://sensorfacade.readthedocs.io/en/latest/?badge=master
    :alt: Documentation Status
 
 This library provides a facade for sensor data. It provides a way to
