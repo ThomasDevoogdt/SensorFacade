@@ -1,8 +1,8 @@
 SensorFacade
 ============
 
-Link to github: https://github.com/ThomasDevoogdt/SensorFacade.git
-Link to docs: http://sensorfacade.readthedocs.io/en/latest/?badge=master
+- Link to github: https://github.com/ThomasDevoogdt/SensorFacade.git
+- Link to docs: http://sensorfacade.readthedocs.io/en/latest/?badge=master
 
 |travis| |appveyor| |codacy| |licenses| |readthedocs|
 
