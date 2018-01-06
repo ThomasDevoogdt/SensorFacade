@@ -6,3 +6,5 @@ lib
 cmake-build-debug
 CMakeLists.txt
 lib_clone
+/extras/docs/xml/
+/extras/docs/_build/
