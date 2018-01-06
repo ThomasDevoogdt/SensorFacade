@@ -8,6 +8,10 @@
 #include <Arduino.h>
 
 struct Data {
+	/**
+	 * default struct constructor
+	 *
+	 */
 	Data() = default;
 
 	/**
@@ -20,8 +24,8 @@ struct Data {
 		this->time = time;
 	}
 
-	float value = NAN;
-	unsigned long time = NAN;
+	float value = NAN; /**< data enum value */
+	unsigned long time = NAN; /**< data enum time */
 };
 
 #endif //SENSOR_DATA_H

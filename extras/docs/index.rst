@@ -1,53 +1,24 @@
+SensorFacade
+============
+
+This library provides a facade for sensor data. It provides a way to
+attach, initialize, update and read the data.
+
+Contents:
+
 .. toctree::
    :maxdepth: 2
 
-.. include:: ../../README.rst
-.. :end-before: ----
+   readme
+   classdocumentation
 
-Class Documentation
-===================
+Indices and tables
+------------------
 
-SensorFacade
-------------
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
 
-.. doxygenclass:: SensorFacade
-   :project: SensorFacade
-   :members:
-
-SensorSet
----------
-
-.. doxygenclass:: SensorSet
-   :project: SensorFacade
-   :members:
-
-Sensor
-------
-
-.. doxygenclass:: Sensor
-   :project: SensorFacade
-   :members:
-
-ISensor
--------
-
-.. doxygenclass:: ISensor
-   :project: SensorFacade
-   :members:
-
-ITimeProvider
--------------
-
-.. doxygenclass:: ITimeProvider
-   :project: SensorFacade
-   :members:
-
-Data
-----
-
-.. doxygenstruct:: Data
-   :project: SensorFacade
-   :members:
 
 ----
 

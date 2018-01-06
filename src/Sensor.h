@@ -25,6 +25,11 @@ protected:
 
 	// Class Methods
 protected:
+	/**
+	 * set sensor data, used in sensorSet
+	 *
+	 * @param data
+	 */
 	virtual void setData(Data data);
 
 public:

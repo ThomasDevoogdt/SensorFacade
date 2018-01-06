@@ -6,6 +6,10 @@
 #ifndef SENSOR_ISENSOR_H
 #define SENSOR_ISENSOR_H
 
+/**
+ * an abstract sensor class
+ *
+ */
 class ISensor {
 public:
 	/**

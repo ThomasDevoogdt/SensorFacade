@@ -17,6 +17,12 @@ class Sensor;
 
 class SensorSet;
 
+/**
+ * The sensor facade holds a set of sensors and/or sensorSets. Add all the sensors you'll keep track on and call the
+ * begin() function. Thereafter call periodically the update() function. As last provide a callback and call ItrSensor()
+ * to read them out.
+ *
+ */
 class SensorFacade : public ISensor {
 	// Class Fields
 protected:
@@ -71,12 +77,12 @@ public:
 	/**
 	 * get a sensor by index
 	 * @param index
-	 * @return
+	 * @return sensor
 	 */
 	Sensor *getSensor(int index);
 
 	/**
-	 * set a callback for teh sensor iteration
+	 * set a callback for the sensor iteration
 	 * @param sensorItr
 	 */
 	void setSensorItr(void (*sensorItr)(String, Data));

@@ -11,17 +11,35 @@ class Sensor;
 
 class SensorFacade;
 
+/**
+ * A sensor set helps you to add sensor metrics to one container. e.g. a sensor that can reads the temperature as well
+ * the pressure.
+ *
+ */
 class SensorSet : public ISensor {
 protected:
 	ITimeProvider *timeProvider;
 	SensorLinkedList<Sensor *> sensors;
 
+	/**
+	 * add a sensor to the sensor set
+	 *
+	 * @param sensor
+	 */
 	void addSensor(Sensor *sensor);
 
+	/**
+	 *
+	 * @brief The standard says (ISO/IEC 14882:2003, section 11.4.8): Friendship is neither inherited nor transitive.
+	 * Intermediate step required!
+	 *
+	 * @param sensor reference
+	 * @param data object
+	 */
+	void setSensorData(Sensor *sensor, Data data);
 	// The standard says (ISO/IEC 14882:2003, section 11.4.8):
 	// Friendship is neither inherited nor transitive.
 	// Intermediate step required!
-	void setSensorData(Sensor *sensor, Data data);
 
 public:
 	/**
@@ -45,6 +63,10 @@ public:
 	 */
 	void update() override;
 
+	/**
+	 *
+	 * @return all the sensors of the container
+	 */
 	SensorLinkedList<Sensor *> getSensors();
 
 	friend SensorFacade;
